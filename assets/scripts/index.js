@@ -1,13 +1,25 @@
 import { PRIVATE_KEY } from "../../assets/scripts/privateKey.js";
-axios
-    .get(`https://newsapi.org/v2/everything?q=Apple&from=2021-09-28&sortBy=popularity&apiKey=${PRIVATE_KEY}`)
-    .then((response) => {
+const searchBtn = document.getElementById("search-btn");
+function fetchNews(event) {
+    const newsUri = getNewsUri();
+    axios.get().then(setNewsHandlebars).catch(logRequestError);
+}
+function getNewsUri() {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const from = yesterday.toDateString();
+    const searchInput = document.getElementById("search-input");
+    const q = searchInput.value;
+    return `https://newsapi.org/v2/everything?q=${q}&from=${from}&sortBy=popularity&apiKey=${PRIVATE_KEY}`;
+}
+function setNewsHandlebars(response) {
     const templateSource = document.getElementById("grid-source").innerHTML;
     const template = Handlebars.compile(templateSource);
     document.getElementById("grid").innerHTML = template({
         news: response.data.articles,
     });
-})
-    .catch((err) => {
+}
+function logRequestError(err) {
     console.log(err);
-});
+}
+searchBtn.addEventListener("click", fetchNews);

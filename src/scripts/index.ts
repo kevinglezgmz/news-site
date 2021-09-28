@@ -1,16 +1,36 @@
+import { PRIVATE_KEY } from "../../assets/scripts/privateKey.js";
+
 declare let Handlebars;
 declare let axios;
 
-import { PRIVATE_KEY } from "../../assets/scripts/privateKey.js";
-axios
-  .get(`https://newsapi.org/v2/everything?q=Apple&from=2021-09-28&sortBy=popularity&apiKey=${PRIVATE_KEY}`)
-  .then((response) => {
-    const templateSource = document.getElementById("grid-source").innerHTML;
-    const template = Handlebars.compile(templateSource);
-    document.getElementById("grid").innerHTML = template({
-      news: response.data.articles,
-    });
-  })
-  .catch((err) => {
-    console.log(err);
+const searchBtn = <HTMLButtonElement>document.getElementById("search-btn");
+
+function fetchNews(event: MouseEvent) {
+  const newsUri = getNewsUri();
+  axios.get().then(setNewsHandlebars).catch(logRequestError);
+}
+
+function getNewsUri(): string {
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const from = yesterday.toDateString();
+
+  const searchInput = <HTMLInputElement>document.getElementById("search-input");
+  const q = searchInput.value;
+
+  return `https://newsapi.org/v2/everything?q=${q}&from=${from}&sortBy=popularity&apiKey=${PRIVATE_KEY}`;
+}
+
+function setNewsHandlebars(response: any) {
+  const templateSource = document.getElementById("grid-source").innerHTML;
+  const template = Handlebars.compile(templateSource);
+  document.getElementById("grid").innerHTML = template({
+    news: response.data.articles,
   });
+}
+
+function logRequestError(err: any) {
+  console.log(err);
+}
+
+searchBtn.addEventListener("click", fetchNews);
