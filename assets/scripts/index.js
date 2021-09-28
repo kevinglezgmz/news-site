@@ -2,7 +2,7 @@ import { PRIVATE_KEY } from "../../assets/scripts/privateKey.js";
 const searchBtn = document.getElementById("search-btn");
 function fetchNews(event) {
     const newsUri = getNewsUri();
-    axios.get().then(setNewsHandlebars).catch(logRequestError);
+    axios.get(newsUri).then(setNewsHandlebars).catch(logRequestError);
 }
 function getNewsUri() {
     const yesterday = new Date();
