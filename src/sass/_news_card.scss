@@ -1,0 +1,40 @@
+.card {
+  border: 2px solid rgb(104, 104, 119);
+  border-radius: 6px;
+  margin: 1em;
+  padding: 1em;
+}
+
+.card > img {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.card > h2 {
+  text-align: center;
+}
+
+.card > p {
+  color: rgb(102, 102, 102);
+}
+
+.card > a {
+  background-color: rgb(100, 193, 236);
+  box-shadow: 0 5px 0 rgb(63, 149, 189);
+  color: white;
+  padding: 0.4em 1em;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.card > a:hover {
+  background-color: rgb(63, 149, 189);
+  cursor: pointer;
+}
+
+.card > a:active {
+  box-shadow: none;
+  top: 5px;
+}
