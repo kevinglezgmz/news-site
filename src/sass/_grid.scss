@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@import "variables";
+@import "media_queries";
 
 @mixin column-width($column-span) {
   width: calc(100% / ($max-cols / #{$column-span}));
@@ -15,24 +15,6 @@
     > .col#{$device-size}-#{$size} {
       width: get-column-width($size);
     }
-  }
-}
-
-@mixin tablet {
-  @media screen and (min-width: $tablet-width) {
-    @content;
-  }
-}
-
-@mixin laptop {
-  @media screen and (min-width: $laptop-width) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media screen and (min-width: $desktop-width) {
-    @content;
   }
 }
 

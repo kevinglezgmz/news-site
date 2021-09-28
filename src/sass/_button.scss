@@ -1,0 +1,21 @@
+.btn {
+  margin-top: 1em;
+  background-color: rgb(100, 193, 236);
+  box-shadow: 0 5px 0 rgb(63, 149, 189);
+  color: white;
+  padding: 0.4em 1em;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  position: relative;
+}
+
+.btn:hover {
+  background-color: rgb(102, 173, 206);
+  cursor: pointer;
+}
+
+.btn:active {
+  box-shadow: none;
+  top: 5px;
+}
