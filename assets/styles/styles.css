@@ -112,27 +112,49 @@
 }
 
 .card {
-  border: 2px solid #686877;
-  border-radius: 6px;
   margin: 1em;
   padding: 1em;
+  background-color: #bb4430;
+  height: 550px;
+  position: relative;
 }
 
 .card > img {
   display: block;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .card > h2 {
   text-align: center;
+  color: #fdfcdc;
+  max-height: 170px;
+  overflow: hidden;
 }
 
 .card > p {
-  color: #666666;
+  color: #fdfcdc;
+  font-weight: 550;
+  letter-spacing: 0.02cm;
+  max-height: 200px;
+  overflow: hidden;
 }
 
-.card > a {
+.card > a.btn {
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+}
+
+.card > a.btn:active {
+  box-shadow: none;
+  bottom: 15px;
+  top: auto;
+}
+
+.btn {
+  margin-top: 1em;
   background-color: #64c1ec;
   box-shadow: 0 5px 0 #3f95bd;
   color: white;
@@ -140,18 +162,63 @@
   text-decoration: none;
   display: block;
   text-align: center;
+  position: relative;
 }
 
-.card > a:hover {
-  background-color: #3f95bd;
+.btn:hover {
+  background-color: #66adce;
   cursor: pointer;
 }
 
-.card > a:active {
+.btn:active {
   box-shadow: none;
   top: 5px;
 }
 
+form {
+  background-color: #90bede;
+  padding: 1em 0;
+}
+
+form .input {
+  background-color: #404e5c;
+  color: aliceblue;
+}
+
+form .input,
+form .btn {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  height: 2em;
+  font-size: medium;
+}
+@media screen and (min-width: 1200px) {
+  form .input,
+form .btn {
+    width: 60%;
+  }
+}
+
+form .input {
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+form .input:focus {
+  outline: none;
+}
+
 * {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #eeb4b3;
 }

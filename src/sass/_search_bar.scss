@@ -1,0 +1,36 @@
+@import "media_queries";
+
+form {
+  background-color: rgb(144, 190, 222);
+  padding: 1em 0;
+}
+
+form .input {
+  background-color: #404e5c;
+  color: aliceblue;
+}
+
+form .input,
+form .btn {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  height: 2em;
+  font-size: medium;
+
+  @include desktop() {
+    width: 60%;
+  }
+}
+
+form .input {
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+form .input:focus {
+  outline: none;
+}
