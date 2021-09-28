@@ -4,7 +4,9 @@
   "description": "Project created for learning purposes such as project configuration, task automatization and consuming an external api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-watch": "gulp serve",
+    "build": "gulp"
   },
   "author": "Kevin Gonzalez",
   "license": "ISC",
