@@ -1,0 +1,64 @@
+@use "sass:math";
+
+@import "variables";
+
+@mixin column-width($column-span) {
+  width: calc(100% / ($max-cols / #{$column-span}));
+}
+
+@function get-column-width($column-span) {
+  @return math.div($column-span, $max-cols) * 100%;
+}
+
+@mixin column-define($device-size) {
+  @each $size in $num-cols-list {
+    > .col#{$device-size}-#{$size} {
+      width: get-column-width($size);
+    }
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (min-width: $laptop-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+.grid::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.grid {
+  > div {
+    float: left;
+    box-sizing: border-box;
+  }
+
+  @include column-define("");
+
+  @include tablet() {
+    @include column-define("-sm");
+  }
+
+  @include laptop() {
+    @include column-define("-md");
+  }
+
+  @include desktop() {
+    @include column-define("-lg");
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica 1 - News Site</title>
+    <link rel="stylesheet" href="assets/styles/styles.css" />
+  </head>
+  <body>
+    <nav id="nav"></nav>
+    <section id="main-section">
+      <div id="grid" class="grid">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="card">
+            <img src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png" alt="img" />
+            <h2>Imagen</h2>
+            <p>Descripción</p>
+            <a href="google.com">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer"></footer>
+
+    <script id="grid-source" type="text/x-handlebars">
+      {{#each news}}
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="card">
+          <img src="{{urlToImage}}" alt="img" />
+          <h2>{{title}}</h2>
+          <p>{{description}}</p>
+          <a href="{{url}}">Ver más</a>
+        </div>
+      </div>
+      {{/each news}}
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  </body>
+</html>
