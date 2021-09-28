@@ -30,11 +30,13 @@
           <img src="{{urlToImage}}" alt="img" />
           <h2>{{title}}</h2>
           <p>{{description}}</p>
-          <a href="{{url}}">Ver más</a>
+          <a href="{{url}}" target="_blank">Ver más</a>
         </div>
       </div>
-      {{/each news}}
+      {{/each}}
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/scripts/index.js" type="module"></script>
   </body>
 </html>
