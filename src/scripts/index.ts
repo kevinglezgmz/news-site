@@ -7,7 +7,7 @@ const searchBtn = <HTMLButtonElement>document.getElementById("search-btn");
 
 function fetchNews(event: MouseEvent) {
   const newsUri = getNewsUri();
-  axios.get().then(setNewsHandlebars).catch(logRequestError);
+  axios.get(newsUri).then(setNewsHandlebars).catch(logRequestError);
 }
 
 function getNewsUri(): string {
