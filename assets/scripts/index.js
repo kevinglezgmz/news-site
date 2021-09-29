@@ -2,7 +2,9 @@ import { PRIVATE_KEY } from "../../assets/scripts/privateKey.js";
 const searchBtn = document.getElementById("search-btn");
 function fetchNews(event) {
     const newsUri = getNewsUri();
-    axios.get(newsUri).then(setNewsHandlebars).catch(logRequestError);
+    if (newsUri) {
+        axios.get(newsUri).then(setNewsHandlebars).catch(logRequestError);
+    }
 }
 function getNewsUri() {
     const yesterday = new Date();
@@ -10,7 +12,9 @@ function getNewsUri() {
     const from = yesterday.toDateString();
     const searchInput = document.getElementById("search-input");
     const q = searchInput.value;
-    return `https://newsapi.org/v2/everything?q=${q}&from=${from}&sortBy=popularity&apiKey=${PRIVATE_KEY}`;
+    if (q !== "") {
+        return `https://newsapi.org/v2/everything?q=${q}&from=${from}&sortBy=popularity&apiKey=${PRIVATE_KEY}`;
+    }
 }
 function setNewsHandlebars(response) {
     const templateSource = document.getElementById("grid-source").innerHTML;

@@ -7,7 +7,9 @@ const searchBtn = <HTMLButtonElement>document.getElementById("search-btn");
 
 function fetchNews(event: MouseEvent) {
   const newsUri = getNewsUri();
-  axios.get(newsUri).then(setNewsHandlebars).catch(logRequestError);
+  if (newsUri) {
+    axios.get(newsUri).then(setNewsHandlebars).catch(logRequestError);
+  }
 }
 
 function getNewsUri(): string {
@@ -17,8 +19,9 @@ function getNewsUri(): string {
 
   const searchInput = <HTMLInputElement>document.getElementById("search-input");
   const q = searchInput.value;
-
-  return `https://newsapi.org/v2/everything?q=${q}&from=${from}&sortBy=popularity&apiKey=${PRIVATE_KEY}`;
+  if (q !== "") {
+    return `https://newsapi.org/v2/everything?q=${q}&from=${from}&sortBy=popularity&apiKey=${PRIVATE_KEY}`;
+  }
 }
 
 function setNewsHandlebars(response: any) {
