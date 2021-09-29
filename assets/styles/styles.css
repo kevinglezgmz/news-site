@@ -112,7 +112,7 @@
 }
 
 .card {
-  margin: 1em;
+  margin: 1em 10%;
   padding: 1em;
   background-color: #bb4430;
   height: 520px;
@@ -140,7 +140,7 @@
 .card > h2 {
   text-align: center;
   color: #fdfcdc;
-  height: 80px;
+  height: 87px;
   overflow: hidden;
 }
 
@@ -150,6 +150,7 @@
   letter-spacing: 0.02cm;
   max-height: 200px;
   overflow: hidden;
+  word-wrap: break-word;
 }
 
 .card > a.btn {
@@ -157,6 +158,9 @@
   bottom: 20px;
   left: 5%;
   right: 5%;
+  font-weight: 550;
+  font-size: medium;
+  text-transform: uppercase;
 }
 
 .card > a.btn:active {
@@ -165,6 +169,29 @@
   top: auto;
 }
 
+#main-section {
+  margin: 0 25px;
+}
+
+@media screen and (min-width: 768px) {
+  #main-section {
+    margin: auto;
+  }
+
+  .card {
+    margin: 1em 0.5em;
+  }
+}
+@media screen and (min-width: 992px) {
+  .card {
+    margin: 1em 0.75em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .card {
+    margin: 1em;
+  }
+}
 .btn {
   margin-top: 1em;
   background-color: #64c1ec;
