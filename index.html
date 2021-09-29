@@ -18,7 +18,9 @@
       <div id="grid" class="grid">
         <div class="col-6 col-sm-4 col-md-3 col-lg-2">
           <div class="card">
-            <img src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png" alt="img" />
+            <div class="img-container">
+              <img src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png" alt="img" />
+            </div>
             <h2>Imagen</h2>
             <p>Descripción</p>
             <a class="btn" href="google.com">Ver más</a>
@@ -32,9 +34,16 @@
       {{#each news}}
       <div class="col-6 col-sm-4 col-md-3 col-lg-2">
         <div class="card">
-          <img src="{{urlToImage}}" alt="img" />
-          <h2>{{title}}</h2>
-          <p>{{description}}</p>
+          <div class="img-container">
+            {{#if urlToImage}}
+            <img src="{{urlToImage}}" alt={{title}} />
+            {{else}}
+            <img src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png" alt={{title}} />
+            {{/if}}
+
+          </div>
+          <h2>{{#if title}}{{title}}{{else}}- No title -{{/if}}</h2>
+          <p>{{#if description}}{{description}}{{else}}- No description -{{/if}}</p>
           <a class="btn" href="{{url}}" target="_blank">Ver más</a>
         </div>
       </div>
